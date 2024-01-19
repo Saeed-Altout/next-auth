@@ -1,10 +1,12 @@
 "use client";
-import { signOut, useSession } from "next-auth/react";
+
 import { redirect } from "next/navigation";
-import { date } from "zod";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+
 import { LogOut } from "lucide-react";
+import { signOut, useSession } from "next-auth/react";
+
+import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function Home() {
   const { data: session, status } = useSession();
@@ -12,6 +14,7 @@ export default function Home() {
   if (status === "unauthenticated") {
     redirect("/sign-up");
   }
+
   return (
     <>
       <nav className="flex justify-between items-center h-16 border-b container mx-auto">
